@@ -2,7 +2,7 @@ from random_word import RandomWords
 import enchant
 
 ALLOWED_MAX_GUESSES = 6
-dict = enchant.Dict("en_US")
+dictionaryToCheck = enchant.Dict("en_US")
 
 def wordForTheGame() -> str:
     r = RandomWords()
@@ -11,7 +11,7 @@ def wordForTheGame() -> str:
 
 def getGuess() -> str:
     guess = input("Enter guess : ")
-    while (len(guess) != 5 or not dict.check(guess)):
+    while (len(guess) != 5 or not dictionaryToCheck.check(guess)):
         if(len(guess) != 5):
             print("Enter 5 letter word only")
         else:
